@@ -13,6 +13,7 @@
 		FC3BFEC823C6C27C0094182B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3BFEC623C6C27C0094182B /* Main.storyboard */; };
 		FC3BFECA23C6C27E0094182B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3BFEC923C6C27E0094182B /* Assets.xcassets */; };
 		FC3BFECD23C6C27E0094182B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3BFECB23C6C27E0094182B /* LaunchScreen.storyboard */; };
+		FCA7345523C6DF30003F7563 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7345423C6DF30003F7563 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FC3BFEC923C6C27E0094182B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC3BFECC23C6C27E0094182B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC3BFECE23C6C27E0094182B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA7345423C6DF30003F7563 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		FC3BFEBF23C6C27C0094182B /* AstroHangman */ = {
 			isa = PBXGroup;
 			children = (
+				FC3BFED623C6C2BB0094182B /* Controller */,
+				FC3BFED523C6C2AF0094182B /* Model */,
+				FC3BFED423C6C2930094182B /* View */,
 				FC3BFEC023C6C27C0094182B /* AppDelegate.swift */,
 				FC3BFEC223C6C27C0094182B /* SceneDelegate.swift */,
-				FC3BFEC423C6C27C0094182B /* ViewController.swift */,
-				FC3BFEC623C6C27C0094182B /* Main.storyboard */,
 				FC3BFEC923C6C27E0094182B /* Assets.xcassets */,
 				FC3BFECB23C6C27E0094182B /* LaunchScreen.storyboard */,
 				FC3BFECE23C6C27E0094182B /* Info.plist */,
 			);
 			path = AstroHangman;
+			sourceTree = "<group>";
+		};
+		FC3BFED423C6C2930094182B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC3BFEC623C6C27C0094182B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC3BFED523C6C2AF0094182B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7345423C6DF30003F7563 /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC3BFED623C6C2BB0094182B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC3BFEC423C6C27C0094182B /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC3BFEC523C6C27C0094182B /* ViewController.swift in Sources */,
+				FCA7345523C6DF30003F7563 /* DataModel.swift in Sources */,
 				FC3BFEC123C6C27C0094182B /* AppDelegate.swift in Sources */,
 				FC3BFEC323C6C27C0094182B /* SceneDelegate.swift in Sources */,
 			);
