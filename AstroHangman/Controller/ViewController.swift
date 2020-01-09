@@ -14,8 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerView: UILabel!
     @IBOutlet weak var numGuessesLeft: UILabel!
     @IBOutlet weak var letterTextField: UITextField!
+    var dataModel = DataModel()
     
-    
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        print("Reset button works...check")
+        numberOfGuessesLeft = 9
+        numGuessesLeft.text = String(numberOfGuessesLeft)
+        playerView.text = dataModel.getPlayerView()
+        
+    }
     
     @IBAction func guessesButton(_ sender: UIButton) {
         if let text = letterTextField.text {
@@ -42,7 +49,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        playerView.text = playerViewData
+       // dataModel = DataModel()
+        var secretWord = dataModel.getSecretWord()
+        secretWord = dataModel.getSecretWord()
+        print("SecretWord: \(secretWord)")
+        playerView.text = secretWord
+        
     }
 
 
