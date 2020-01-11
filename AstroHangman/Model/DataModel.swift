@@ -40,7 +40,7 @@ class DataModel{
     
     func getPlayerView(viewString: String)-> String {
         if secretWord != nil {
-             var wordy = wordManipulator.createBlankWord(wordLocal: secretWord ?? "niiiil")
+             var wordy = wordManipulator.createBlankWord(wordLocal: viewString ?? "niiiil")
             return wordy
         } else {
            return ""

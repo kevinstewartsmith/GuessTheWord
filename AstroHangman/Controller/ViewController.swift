@@ -22,10 +22,12 @@ class ViewController: UIViewController {
         numGuessesLeft.text = String(numberOfGuessesLeft)
         dataModel.createSecretWord()
         let word = dataModel.getSecretWord()
-        
+        let blankWord = dataModel.getPlayerView(viewString: word ?? "no blank word")
+        //let blankWord = dataModel.getBlankWord()
+        //print(blankWord)
         print("new word: \(word)")
         let blank : String = dataModel.getPlayerView(viewString: word ?? "?????")
-        playerView.text = blank
+        playerView.text = blankWord
     }
     
     @IBAction func guessesButton(_ sender: UIButton) {
