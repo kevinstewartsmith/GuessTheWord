@@ -13,7 +13,7 @@ class WordManipulator{
     var word : String?
     var blankWord : String?
     var wordArray : [String] = []
-    var blankWordArray : [String?] = []
+    var blankWordArray : [String] = []
     
     init(){
         wordArray = ["fats","carbohydrates","protein","calories" ]
@@ -22,8 +22,10 @@ class WordManipulator{
     func getWord(word: String)-> String? {
         return ""
     }
-    
-    func getBlankWord(wordLocal: String) -> String {
+    func getBlankeWord()-> String{
+        return blankWord ?? "??????"
+    }
+    func createBlankWord(wordLocal: String) -> String {
         var randoWord = ""
         var newBlankWord = ""
         
@@ -31,7 +33,7 @@ class WordManipulator{
             randoWord = wordLocal
             var count = randoWord.count
             for i in 1...count{
-                newBlankWord = "\(newBlankWord) _"
+                newBlankWord = "\(newBlankWord)_"
             }
             return newBlankWord
         } else {
@@ -40,7 +42,9 @@ class WordManipulator{
         
     }
         
-       
+    func setBlankWord(word: String){
+        blankWord = word
+    }
         
     
     
@@ -49,5 +53,57 @@ class WordManipulator{
         word = wordArray[randoInt]
         return word
          
+    }
+    
+    func replace(myString: String, _ index: Int, _ newChar: Character) -> String {
+        var chars = Array(myString)     // gets an array of characters
+        chars[index] = newChar
+        let modifiedString = String(chars)
+        return modifiedString
+    }
+    
+    func updatePlayerView(char: Character) -> String {
+        var newString = ""
+        let defaultArray: [Int] = []
+        var array = word?.indicesOf(string: String(char))
+        print(array)
+        newString = blankWord ?? "blank word nil"
+        for i in array ?? defaultArray {
+            newString = replace(myString: newString ?? "blank word nil", i, char)
+        }
+        blankWord = newString
+        print(newString)
+        return newString
+    }
+    
+//    func updateGame(char: Character){
+//        var letterIdx = word?.indicesOf(string: String(char))
+//        let defaultArray = [0]
+//        print("indices of \(char): \(letterIdx) ")
+//        for i in letterIdx ?? defaultArray{
+//           //print("IIII: \(i)")
+//            blankWordArray[i] = String(char)
+//        }
+//        //print(revealedLetters)
+//        blankWord = blankWordArray.joined()
+//    }
+    
+}
+
+extension String {
+    func indicesOf(string: String) -> [Int] {
+        var indices = [Int]()
+        var searchStartIndex = self.startIndex
+
+        while searchStartIndex < self.endIndex,
+            let range = self.range(of: string, range: searchStartIndex..<self.endIndex),
+            !range.isEmpty
+        {
+            let index = distance(from: self.startIndex, to: range.lowerBound)
+            indices.append(index)
+            searchStartIndex = range.upperBound
+        }
+
+        return indices
     }
 }

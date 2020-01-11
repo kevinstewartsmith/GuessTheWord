@@ -19,6 +19,8 @@ class DataModel{
     init() {
         wordManipulator = WordManipulator()
         secretWord = wordManipulator.getRandomWord()
+        var blankWord = wordManipulator.createBlankWord(wordLocal: secretWord ?? "jesus2")
+        wordManipulator.setBlankWord(word: blankWord)
        // nutrientsArray =  ["carbohydrates","fats","protein","sodium","calories"]
         //randomNumber = arc4random_uniform(5)
        // randoInt = Int.random(in: 0..<5)
@@ -33,18 +35,40 @@ class DataModel{
         
         
 
-        return wordManipulator.getRandomWord()
+        return secretWord
     }
     
-    func getPlayerView()-> String {
+    func getPlayerView(viewString: String)-> String {
         if secretWord != nil {
-             var wordy = wordManipulator.getBlankWord(wordLocal: secretWord ?? "niiiil")
+             var wordy = wordManipulator.createBlankWord(wordLocal: secretWord ?? "niiiil")
             return wordy
         } else {
            return ""
         }
         
+
         
+    }
+    func getBlankWord()-> String {
+        let blankWord = wordManipulator.getBlankeWord()
+        return blankWord
+    }
+    func createSecretWord(){
+        secretWord = wordManipulator.getRandomWord()
+    }
+    
+    func guessLetter(letter: String)-> String{
+        let char =  Character(letter)
+
+        if secretWord?.contains(char) ?? false{
+            //wordManipulator.updateGame(char: char)
+            wordManipulator.updatePlayerView(char: char)
+            var newBlankWord = wordManipulator.getBlankeWord()
+            return newBlankWord
+        } else {
+            return "not contained!!!"
+        }
+
     }
     
     

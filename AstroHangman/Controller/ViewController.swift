@@ -20,8 +20,12 @@ class ViewController: UIViewController {
         print("Reset button works...check")
         numberOfGuessesLeft = 9
         numGuessesLeft.text = String(numberOfGuessesLeft)
-        playerView.text = dataModel.getPlayerView()
+        dataModel.createSecretWord()
+        let word = dataModel.getSecretWord()
         
+        print("new word: \(word)")
+        let blank : String = dataModel.getPlayerView(viewString: word ?? "?????")
+        playerView.text = blank
     }
     
     @IBAction func guessesButton(_ sender: UIButton) {
@@ -31,8 +35,11 @@ class ViewController: UIViewController {
             } else if text.count == 1 {
                 print(text)
                 letterTextField.text = ""
+                var guess = dataModel.guessLetter(letter: text)
+                var newBlankWord = dataModel.getBlankWord()
+                print(guess)
                 playerViewData = "\(playerViewData) \(text)"
-                playerView.text = playerViewData
+                playerView.text = newBlankWord
             } else {
                 print("Too many letters!")
                 letterTextField.text = ""
