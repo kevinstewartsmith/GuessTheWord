@@ -19,27 +19,32 @@ class ViewController: UIViewController {
     var secretWord : String?
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        print("Reset button works...check")
+        //print("Reset button works...check")
         numberOfGuessesLeft = 9
         numGuessesLeft.text = String(numberOfGuessesLeft)
         dataModel.createSecretWord()
         let word = dataModel.getSecretWord()
         //let blankWord = dataModel.getPlayerView(viewString: word ?? "no blank word")
-        let blankArray = dataModel.initiateWordArray(word: word ?? "word")
+        
          
-        print("Blank Array: \(blankArray)")
-        let blankWord = dataModel.getBlankWord()
-        print(blankWord)
-        print("new word: \(word)")
+        //print("Blank Array: \(blankArray)")
+        
+        //print(blankWord)
+        //print("new word: \(word)")
         
         var randomWord = model.selectRandomWord()
-        print("randomWord: \(randomWord)")
+        //print("randomWord: \(randomWord)")
         model.set(word: randomWord)
-        print("model word: \(model.getSecretWord())")
+        let blankArray = model.makeNewBlankArrayFromWord(word: randomWord)
+        print("blankArray: \(blankArray)")
+        let blankWord = model.getBlankWord()
+        print("blankWord: \(blankWord)")
+        
+        //print("model word: \(model.getSecretWord())")
         //let blank : String = dataModel.getPlayerView(viewString: word ?? "?????")
-        print("blank \(model.makeNewBlankArrayFromWord(word: randomWord))")
-        print(model.getBlankWord())
-        playerView.text = model.getBlankWord()
+        //print("blank \(model.makeNewBlankArrayFromWord(word: randomWord))")
+        //print(model.getBlankWord())
+        playerView.text = blankWord
     }
     
     @IBAction func guessesButton(_ sender: UIButton) {
@@ -48,14 +53,19 @@ class ViewController: UIViewController {
                 print("Guess a letter!")
             } else if text.count == 1 {
                 print(text)
+                print("yo: \(model.guess(letter: text))")
                 letterTextField.text = ""
-                var guess = dataModel.guessLetter(letter: text)
-                var betterBlankWord = dataModel.getBlankWordArrayString()
-                print("Better blank word: \(betterBlankWord)")
-                var newBlankWord = dataModel.getBlankWord()
-                print(guess)
+               // var guess = dataModel.guessLetter(letter: text)
+                //var betterBlankWord = dataModel.getBlankWordArrayString()
+                //print("Better blank word: \(betterBlankWord)")
+                
+                //var newBlankWord = dataModel.getBlankWord()
+                //print(guess)
                 //playerViewData = "\(playerViewData) \(text)"
-                playerView.text = newBlankWord
+                
+                
+                
+                playerView.text = "Guess!"
             } else {
                 print("Too many letters!")
                 letterTextField.text = ""

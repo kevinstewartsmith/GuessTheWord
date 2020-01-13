@@ -99,6 +99,21 @@ class WordManipulator{
         return localArray
     }
     
+    func addLetterToBlankArray(char: Character, oldArray: [String], word: String) -> [String] {
+        var newArray = oldArray
+        print(newArray)
+        var charString = String(char)
+        var idxArray = word.indicesOf(string: charString)
+        print("idx array: \(idxArray)")
+        
+        for i in 0...idxArray.count - 1{
+            newArray[i] = charString
+
+        }
+        
+        return newArray
+    }
+    
 }
 
 extension String {
