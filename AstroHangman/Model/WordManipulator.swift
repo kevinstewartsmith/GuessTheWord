@@ -88,6 +88,17 @@ class WordManipulator{
 //        blankWord = blankWordArray.joined()
 //    }
     
+    func updatePlayerViewWord(word: String, letter: String, array: [String])->[String]{
+        let idxArray = word.indicesOf(string: letter)
+        var localArray : [String] = array
+        print("indicesOfLetter: \(idxArray)")
+        print(localArray.count)
+//        for i in idxArray {
+//            localArray[i] = letter
+//        }
+        return localArray
+    }
+    
 }
 
 extension String {

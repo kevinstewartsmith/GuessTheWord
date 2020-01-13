@@ -15,6 +15,7 @@
 		FC3BFECD23C6C27E0094182B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3BFECB23C6C27E0094182B /* LaunchScreen.storyboard */; };
 		FCA7345523C6DF30003F7563 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7345423C6DF30003F7563 /* DataModel.swift */; };
 		FCA7345723C77C63003F7563 /* WordManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7345623C77C63003F7563 /* WordManipulator.swift */; };
+		FCA7345923CB771B003F7563 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7345823CB771B003F7563 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FC3BFECE23C6C27E0094182B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA7345423C6DF30003F7563 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		FCA7345623C77C63003F7563 /* WordManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManipulator.swift; sourceTree = "<group>"; };
+		FCA7345823CB771B003F7563 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				FCA7345423C6DF30003F7563 /* DataModel.swift */,
 				FCA7345623C77C63003F7563 /* WordManipulator.swift */,
+				FCA7345823CB771B003F7563 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				FC3BFEC523C6C27C0094182B /* ViewController.swift in Sources */,
 				FCA7345723C77C63003F7563 /* WordManipulator.swift in Sources */,
 				FCA7345523C6DF30003F7563 /* DataModel.swift in Sources */,
+				FCA7345923CB771B003F7563 /* Model.swift in Sources */,
 				FC3BFEC123C6C27C0094182B /* AppDelegate.swift in Sources */,
 				FC3BFEC323C6C27C0094182B /* SceneDelegate.swift in Sources */,
 			);

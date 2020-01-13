@@ -15,7 +15,7 @@ class DataModel{
     //var nutrientsArray : [String?]
     var secretWord : String?
     let wordManipulator : WordManipulator
-    
+    var blankWordArray : [String] = []
     init() {
         wordManipulator = WordManipulator()
         secretWord = wordManipulator.getRandomWord()
@@ -51,7 +51,9 @@ class DataModel{
     }
     func getBlankWord()-> String {
         let blankWord = wordManipulator.getBlankeWord()
-        return blankWord
+        //return blankWord
+        let word = blankWordArray.joined()
+        return word
     }
     func createSecretWord(){
         secretWord = wordManipulator.getRandomWord()
@@ -64,6 +66,7 @@ class DataModel{
             //wordManipulator.updateGame(char: char)
             wordManipulator.updatePlayerView(char: char)
             var newBlankWord = wordManipulator.getBlankeWord()
+            blankWordArray = wordManipulator.updatePlayerViewWord(word: secretWord ?? "word", letter: letter, array: blankWordArray)
             return newBlankWord
         } else {
             return "not contained!!!"
@@ -72,8 +75,16 @@ class DataModel{
     }
     
     
-    
-    
+    func initiateWordArray(word: String) -> String {
+        blankWordArray = []
+        for i in word{
+            blankWordArray.append("_")
+        }
+        return blankWordArray.joined()
+    }
+    func getBlankWordArrayString() ->String{
+        return blankWordArray.joined()
+    }
   
 }
     
