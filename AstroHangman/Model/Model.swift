@@ -53,13 +53,15 @@ class Model {
     
     func guess(letter: String) -> String {
         let char =  Character(letter)
-        print("model.guess char: \(char)")
+        print("model.guess char: \(char)    \(word?.contains(char) ?? false)")
         if word?.contains(char) ?? false{
             //wordManipulator.updateGame(char: char)
             //wordManipulator.updatePlayerView(char: char)
             //var newBlankWord = self.getBlankWord()
             //print("New blank word: \(newBlankWord)")
-             blankWordArray = wordManipulator.addLetterToBlankArray(char: char, oldArray: blankWordArray, word: word ?? "duck")
+             var newArray = wordManipulator.addLetterToBlankArray(char: char, oldArray: blankWordArray, word: word ?? "duck")
+            blankWordArray = newArray
+            print("model.guess blank array: \(blankWordArray)")
             var newBlankword = blankWordArray.joined()
             print("Model new Blank array: \(newBlankword)")
 //            blankWordArray = wordManipulator.updatePlayerViewWord(word: word ?? "word", letter: letter, array: blankWordArray)

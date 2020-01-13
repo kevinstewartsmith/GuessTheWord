@@ -52,17 +52,9 @@ class ViewController: UIViewController {
             if text == "" {
                 print("Guess a letter!")
             } else if text.count == 1 {
-                print(text)
-                print("yo: \(model.guess(letter: text))")
+                var guess = model.guess(letter: text)
+                print("Guess: \(guess)")
                 letterTextField.text = ""
-               // var guess = dataModel.guessLetter(letter: text)
-                //var betterBlankWord = dataModel.getBlankWordArrayString()
-                //print("Better blank word: \(betterBlankWord)")
-                
-                //var newBlankWord = dataModel.getBlankWord()
-                //print(guess)
-                //playerViewData = "\(playerViewData) \(text)"
-                
                 
                 
                 playerView.text = "Guess!"
@@ -93,10 +85,12 @@ class ViewController: UIViewController {
         print(modelSecretWord)
         model.set(word: modelSecretWord)
         model.makeNewBlankArrayFromWord(word: modelSecretWord)
-        print(model.blankWordArray)
+        print("initial blank array: \(model.blankWordArray)")
         var blankWord = model.getBlankWord()
         print(blankWord)
         
+        print("viewDidLoad word\(model.word)")
+        print("viewDidLoad Array \(model.blankWordArray)")
         playerView.text = blankWord
         
         
