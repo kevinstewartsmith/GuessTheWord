@@ -63,9 +63,15 @@ class Model {
             print(charString)
             
             print(wordArray)
-            return "contained!!"
+            for i in idxArray ?? [0] {
+                blankWordArray[i] = "\(wordCharArray[i]) "
+            }
+            var newBlankWord = self.getBlankWord()
+            print(self.getBlankWord())
+            return newBlankWord
         } else {
-            return "not contained!!!"
+            print("not contained!!!")
+            return self.getBlankWord()
         }
         
         return "guess"

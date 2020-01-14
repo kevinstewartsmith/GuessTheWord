@@ -67,6 +67,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="guessButton" destination="Xks-X7-ABb" id="Tbd-yZ-LBQ"/>
                         <outlet property="letterTextField" destination="bF9-js-ORc" id="HI7-si-VwE"/>
                         <outlet property="numGuessesLeft" destination="t3F-hy-fut" id="gyt-Cy-OpG"/>
                         <outlet property="playerView" destination="Wbb-bj-7fX" id="KTm-xs-CKV"/>
