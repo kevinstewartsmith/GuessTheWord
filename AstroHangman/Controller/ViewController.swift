@@ -27,9 +27,9 @@ class ViewController: UIViewController {
         model.set(word: randomWord)
         let blankArray = model.makeNewBlankArrayFromWord(word: randomWord)
         print("blankArray--  : \(blankArray)")
-        let wordArray = model.makeWordArray(word: randomWord)
+        let wordArray = model.makeWordCharArray(word: randomWord)
         print("wordArray:-- \(wordArray)")
-        print("getwordArray:-- \(model.getWordArray())")
+        print("getwordArray:-- \(model.getWordCharArray())")
         let blankWord = model.getBlankWord()
         playerView.text = blankWord
     }
@@ -62,17 +62,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var model = Model()
-        var modelSecretWord = model.selectRandomWord()
-        model.set(word: modelSecretWord)
-        model.makeNewBlankArrayFromWord(word: modelSecretWord)
-        var blankWord = model.getBlankWord()
-        if let wordString = model.word as? String{
-            wordString
-        }
-        print(model.word as? String)
-        
+        var randomWord = model.selectRandomWord()
+        model.set(word: randomWord)
+        let blankArray = model.makeNewBlankArrayFromWord(word: randomWord)
+        print("blankArray--  : \(blankArray)")
+        let wordArray = model.makeWordCharArray(word: randomWord)
+        print("wordArray:-- \(wordArray)")
+        print("getwordArray:-- \(model.getWordCharArray())")
+        let blankWord = model.getBlankWord()
         playerView.text = blankWord
+        
+        
         
         
         

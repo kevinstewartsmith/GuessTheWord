@@ -13,7 +13,7 @@ class Model {
     var blankWordArray : [String] = []
     var wordArray : [String]
     let wordManipulator = WordManipulator()
-    
+    var wordCharArray : [String] = []
     init(){
         wordArray = ["fats","carbohydrates","protein","calories" ]
         word = self.selectRandomWord()
@@ -70,17 +70,17 @@ class Model {
         
         return "guess"
     }
-    func makeWordArray(word: String) -> [String] {
+    func makeWordCharArray(word: String) -> [String] {
         var array : [String] = []
         var count = 0
         for i in word {
             array.append(String(i))
         }
         print("Array: \(array)")
-        wordArray = array
+        wordCharArray = array
         return array
     }
-    func getWordArray() -> [String] {
-        return wordArray
+    func getWordCharArray() -> [String] {
+        return wordCharArray
     }
 }
