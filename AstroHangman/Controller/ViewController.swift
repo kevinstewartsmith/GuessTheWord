@@ -19,31 +19,18 @@ class ViewController: UIViewController {
     var secretWord : String?
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        //print("Reset button works...check")
+        
         numberOfGuessesLeft = 9
         numGuessesLeft.text = String(numberOfGuessesLeft)
-        dataModel.createSecretWord()
-        let word = dataModel.getSecretWord()
-        //let blankWord = dataModel.getPlayerView(viewString: word ?? "no blank word")
-        
-         
-        //print("Blank Array: \(blankArray)")
-        
-        //print(blankWord)
-        //print("new word: \(word)")
-        
+
         var randomWord = model.selectRandomWord()
-        //print("randomWord: \(randomWord)")
         model.set(word: randomWord)
         let blankArray = model.makeNewBlankArrayFromWord(word: randomWord)
-        print("blankArray: \(blankArray)")
+        print("blankArray--  : \(blankArray)")
+        let wordArray = model.makeWordArray(word: randomWord)
+        print("wordArray:-- \(wordArray)")
+        print("getwordArray:-- \(model.getWordArray())")
         let blankWord = model.getBlankWord()
-        print("blankWord: \(blankWord)")
-        
-        //print("model word: \(model.getSecretWord())")
-        //let blank : String = dataModel.getPlayerView(viewString: word ?? "?????")
-        //print("blank \(model.makeNewBlankArrayFromWord(word: randomWord))")
-        //print(model.getBlankWord())
         playerView.text = blankWord
     }
     
@@ -75,22 +62,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // dataModel = DataModel()
-//        var secretWord = dataModel.getSecretWord()
-//        secretWord = dataModel.getSecretWord()
-//        print("SecretWord: \(secretWord)")
-//        playerView.text = secretWord
         var model = Model()
         var modelSecretWord = model.selectRandomWord()
-        print(modelSecretWord)
         model.set(word: modelSecretWord)
         model.makeNewBlankArrayFromWord(word: modelSecretWord)
-        print("initial blank array: \(model.blankWordArray)")
         var blankWord = model.getBlankWord()
-        print(blankWord)
+        if let wordString = model.word as? String{
+            wordString
+        }
+        print(model.word as? String)
         
-        print("viewDidLoad word\(model.word)")
-        print("viewDidLoad Array \(model.blankWordArray)")
         playerView.text = blankWord
         
         

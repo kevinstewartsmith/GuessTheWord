@@ -11,7 +11,7 @@ import Foundation
 class Model {
     var word : String?
     var blankWordArray : [String] = []
-    let wordArray : [String]
+    var wordArray : [String]
     let wordManipulator = WordManipulator()
     
     init(){
@@ -23,6 +23,7 @@ class Model {
     func selectRandomWord() -> String {
         var randoInt = Int.random(in: 0..<wordArray.count)
         word = wordArray[randoInt]
+        print("Selected random word: \(word)")
         return word ?? "butter"
     }
     
@@ -53,24 +54,33 @@ class Model {
     
     func guess(letter: String) -> String {
         let char =  Character(letter)
-        print("model.guess char: \(char)    \(word?.contains(char) ?? false)")
-        if word?.contains(char) ?? false{
-            //wordManipulator.updateGame(char: char)
-            //wordManipulator.updatePlayerView(char: char)
-            //var newBlankWord = self.getBlankWord()
-            //print("New blank word: \(newBlankWord)")
-             var newArray = wordManipulator.addLetterToBlankArray(char: char, oldArray: blankWordArray, word: word ?? "duck")
-            blankWordArray = newArray
-            print("model.guess blank array: \(blankWordArray)")
-            var newBlankword = blankWordArray.joined()
-            print("Model new Blank array: \(newBlankword)")
-//            blankWordArray = wordManipulator.updatePlayerViewWord(word: word ?? "word", letter: letter, array: blankWordArray)
-            return newBlankword
+         let wordArray : [Character] = Array(word ?? "guess")
+        print("model.guess char: \(char)    \(word?.contains(char) ?? false)  \(blankWordArray)")
+        if word?.contains(char) ?? false {
+            var charString = String(char)
+            let idxArray = word?.indicesOf(string: charString)
+            print(idxArray)
+            print(charString)
+            
+            print(wordArray)
+            return "contained!!"
         } else {
             return "not contained!!!"
         }
         
         return "guess"
     }
-
+    func makeWordArray(word: String) -> [String] {
+        var array : [String] = []
+        var count = 0
+        for i in word {
+            array.append(String(i))
+        }
+        print("Array: \(array)")
+        wordArray = array
+        return array
+    }
+    func getWordArray() -> [String] {
+        return wordArray
+    }
 }
