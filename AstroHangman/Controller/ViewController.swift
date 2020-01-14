@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         guessButton.isEnabled = true
+        playerView.textColor = UIColor.black
         numberOfGuessesLeft = 9
         numGuessesLeft.text = String(numberOfGuessesLeft)
         numGuessesLeft.font = numGuessesLeft.font.withSize(152)
@@ -61,9 +62,11 @@ class ViewController: UIViewController {
         if numberOfGuessesLeft == 0 {
             print("You dies!")
             
-            self.numGuessesLeft.text = "You dies!"
+            self.numGuessesLeft.text = "Fuck yoo!"
             self.numGuessesLeft.font = numGuessesLeft.font.withSize(20)
             guessButton.isEnabled = false
+            playerView.text = model.word
+            playerView.textColor = UIColor.red
         }
         
         
