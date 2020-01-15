@@ -15,19 +15,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var numGuessesLeft: UILabel!
     @IBOutlet weak var letterTextField: UITextField!
     @IBOutlet weak var guessButton: UIButton!
+    @IBOutlet weak var outcomeLabel: UILabel!
     var dataModel = DataModel()
     var model = Model()
     var secretWord : String?
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        
         guessButton.isEnabled = true
         playerView.textColor = UIColor.black
         numberOfGuessesLeft = 9
         numGuessesLeft.text = String(numberOfGuessesLeft)
         numGuessesLeft.font = numGuessesLeft.font.withSize(152)
-
+        
         var randomWord = model.selectRandomWord()
         model.set(word: randomWord)
+        model.revealedLetters = 0
+        
         let blankArray = model.makeNewBlankArrayFromWord(word: randomWord)
         print("blankArray--  : \(blankArray)")
         let wordArray = model.makeWordCharArray(word: randomWord)
@@ -35,6 +39,7 @@ class ViewController: UIViewController {
         print("getwordArray:-- \(model.getWordCharArray())")
         let blankWord = model.getBlankWord()
         playerView.text = blankWord
+        outcomeLabel.text = ""
     }
     
     @IBAction func guessesButton(_ sender: UIButton) {
@@ -68,6 +73,12 @@ class ViewController: UIViewController {
             playerView.text = model.word
             playerView.textColor = UIColor.red
         }
+        var bool = false
+        if model.revealedLetters == model.getSecretWord().count {
+            guessButton.isEnabled == false
+            outcomeLabel.text = "WINNER!!!"
+        }
+
         
         
     }
@@ -83,6 +94,7 @@ class ViewController: UIViewController {
         let wordArray = model.makeWordCharArray(word: randomWord)
         print("wordArray:-- \(wordArray)")
         print("getwordArray:-- \(model.getWordCharArray())")
+        model.revealedLetters = 0
         let blankWord = model.getBlankWord()
         playerView.text = blankWord
         

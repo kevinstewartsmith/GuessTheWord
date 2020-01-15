@@ -14,6 +14,7 @@ class Model {
     var wordArray : [String]
     let wordManipulator = WordManipulator()
     var wordCharArray : [String] = []
+    var revealedLetters : Int?
     init(){
         wordArray = ["fats","carbohydrates","protein","calories" ]
         word = self.selectRandomWord()
@@ -61,7 +62,7 @@ class Model {
             let idxArray = word?.indicesOf(string: charString)
             print(idxArray)
             print(charString)
-            
+            self.revealedLetters = (revealedLetters ?? 0) + 1
             print(wordArray)
             for i in idxArray ?? [0] {
                 blankWordArray[i] = "\(wordCharArray[i]) "
