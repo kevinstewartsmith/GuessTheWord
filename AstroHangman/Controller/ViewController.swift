@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var numberOfGuessesLeft : Int = 9
+    var numberOfGuessesLeft : Int = 0
     var playerViewData = ""
     @IBOutlet weak var playerView: UILabel!
     @IBOutlet weak var numGuessesLeft: UILabel!
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var dataModel = DataModel()
     var model = Model()
     var secretWord : String?
+    var startingGuesses : Int?
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
@@ -31,7 +32,8 @@ class ViewController: UIViewController {
         var randomWord = model.selectRandomWord()
         model.set(word: randomWord)
         model.revealedLetters = 0
-        
+        numberOfGuessesLeft = model.getSecretWord().count
+        numGuessesLeft.text = String(numberOfGuessesLeft)
         let blankArray = model.makeNewBlankArrayFromWord(word: randomWord)
         print("blankArray--  : \(blankArray)")
         let wordArray = model.makeWordCharArray(word: randomWord)
@@ -89,6 +91,8 @@ class ViewController: UIViewController {
         
         var randomWord = model.selectRandomWord()
         model.set(word: randomWord)
+        numberOfGuessesLeft = model.getSecretWord().count
+        numGuessesLeft.text = String(numberOfGuessesLeft)
         let blankArray = model.makeNewBlankArrayFromWord(word: randomWord)
         print("blankArray--  : \(blankArray)")
         let wordArray = model.makeWordCharArray(word: randomWord)

@@ -15,6 +15,8 @@ class Model {
     let wordManipulator = WordManipulator()
     var wordCharArray : [String] = []
     var revealedLetters : Int?
+    var startingGuesses : Int?
+    
     init(){
         wordArray = ["fats","carbohydrates","protein","calories" ]
         word = self.selectRandomWord()
