@@ -11,6 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     var numberOfGuessesLeft : Int = 0
     var playerViewData = ""
+    @IBAction func letterButtonPressed(_ sender: UIButton) {
+        print(sender.titleLabel?.text)
+        var guess = model.guess(letter: String(sender.titleLabel?.text?.lowercased() ?? "AA"))
+        playerView.text = guess
+    }
     @IBOutlet weak var playerView: UILabel!
     @IBOutlet weak var numGuessesLeft: UILabel!
     @IBOutlet weak var letterTextField: UITextField!
