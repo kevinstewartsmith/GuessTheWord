@@ -19,7 +19,7 @@ class Model {
     var takeAwayGuess : Bool?
     
     init(){
-        wordArray = ["fats","carbohydrates","protein","calories","grains","dairy" ]
+        wordArray = ["fats","carbohydrates","protein","calories","grains","dairy"]
         word = self.selectRandomWord()
     }
     

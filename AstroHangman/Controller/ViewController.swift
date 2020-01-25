@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var numberOfGuessesLeft : Int = 0
     var playerViewData = ""
     @IBAction func letterButtonPressed(_ sender: UIButton) {
-        print(sender.titleLabel?.text)
+        //print(sender.titleLabel?.text)
         var guess = model.guess(letter: String(sender.titleLabel?.text?.lowercased() ?? "AA"))
         
         playerView.text = guess
@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var playerView: UILabel!
     @IBOutlet weak var numGuessesLeft: UILabel!
-    @IBOutlet weak var letterTextField: UITextField!
-    @IBOutlet weak var guessButton: UIButton!
+    //@IBOutlet weak var letterTextField: UITextField!
+    //@IBOutlet weak var guessButton: UIButton!
     @IBOutlet weak var outcomeLabel: UILabel!
     var dataModel = DataModel()
     var model = Model()
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
-        guessButton.isEnabled = true
+        //guessButton.isEnabled = true
         playerView.textColor = UIColor.black
         numberOfGuessesLeft = 9
         numGuessesLeft.text = String(numberOfGuessesLeft)
@@ -51,46 +51,46 @@ class ViewController: UIViewController {
         outcomeLabel.text = ""
     }
     
-    @IBAction func guessesButton(_ sender: UIButton) {
-        if let text = letterTextField.text {
-            if text == "" {
-                print("Guess a letter!")
-            } else if text.count == 1 {
-                var guess = model.guess(letter: text)
-                print("model data: \(model.blankWordArray)       \(model.getWordCharArray())    \(model.word )")
-                print("Guess: \(guess)")
-                letterTextField.text = ""
-                
-                
-                playerView.text = guess
-            } else {
-                print("Too many letters!")
-                letterTextField.text = ""
-            }
-            
-
-        }
-        processGueses()
-//        numberOfGuessesLeft -= 1
-//        numGuessesLeft.text = String(numberOfGuessesLeft)
-//        if numberOfGuessesLeft == 0 {
-//            print("You dies!")
+//    @IBAction func guessesButton(_ sender: UIButton) {
+//        if let text = letterTextField.text {
+//            if text == "" {
+//                print("Guess a letter!")
+//            } else if text.count == 1 {
+//                var guess = model.guess(letter: text)
+//                print("model data: \(model.blankWordArray)       \(model.getWordCharArray())    \(model.word )")
+//                print("Guess: \(guess)")
+//                letterTextField.text = ""
 //
-//            self.numGuessesLeft.text = "Fuck yoo!"
-//            self.numGuessesLeft.font = numGuessesLeft.font.withSize(20)
-//            guessButton.isEnabled = false
-//            playerView.text = model.word
-//            playerView.textColor = UIColor.red
+//
+//                playerView.text = guess
+//            } else {
+//                print("Too many letters!")
+//                letterTextField.text = ""
+//            }
+//
+//
 //        }
-//        var bool = false
-//        if model.revealedLetters == model.getSecretWord().count {
-//            guessButton.isEnabled == false
-//            outcomeLabel.text = "WINNER!!!"
-//        }
-
-        
-        
-    }
+//        processGueses()
+////        numberOfGuessesLeft -= 1
+////        numGuessesLeft.text = String(numberOfGuessesLeft)
+////        if numberOfGuessesLeft == 0 {
+////            print("You dies!")
+////
+////            self.numGuessesLeft.text = "Fuck yoo!"
+////            self.numGuessesLeft.font = numGuessesLeft.font.withSize(20)
+////            guessButton.isEnabled = false
+////            playerView.text = model.word
+////            playerView.textColor = UIColor.red
+////        }
+////        var bool = false
+////        if model.revealedLetters == model.getSecretWord().count {
+////            guessButton.isEnabled == false
+////            outcomeLabel.text = "WINNER!!!"
+////        }
+//
+//
+//
+//    }
     func processGueses() {
         if model.takeAwayGuess == true {
             numberOfGuessesLeft -= 1
@@ -102,13 +102,13 @@ class ViewController: UIViewController {
             
             self.numGuessesLeft.text = "Fuck yoo!"
             self.numGuessesLeft.font = numGuessesLeft.font.withSize(20)
-            guessButton.isEnabled = false
+            //guessButton.isEnabled = false
             playerView.text = model.word
             playerView.textColor = UIColor.red
         }
         var bool = false
         if model.revealedLetters == model.getSecretWord().count {
-            guessButton.isEnabled == false
+            //guessButton.isEnabled == false
             outcomeLabel.text = "WINNER!!!"
             print("WINNER WINNER Chicken Dinner!!!!!!")
         }
