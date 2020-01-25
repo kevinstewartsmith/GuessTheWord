@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     @IBAction func letterButtonPressed(_ sender: UIButton) {
         print(sender.titleLabel?.text)
         var guess = model.guess(letter: String(sender.titleLabel?.text?.lowercased() ?? "AA"))
+        
         playerView.text = guess
+        processGueses()
     }
     @IBOutlet weak var playerView: UILabel!
     @IBOutlet weak var numGuessesLeft: UILabel!
@@ -68,8 +70,32 @@ class ViewController: UIViewController {
             
 
         }
-            
-        numberOfGuessesLeft -= 1
+        processGueses()
+//        numberOfGuessesLeft -= 1
+//        numGuessesLeft.text = String(numberOfGuessesLeft)
+//        if numberOfGuessesLeft == 0 {
+//            print("You dies!")
+//
+//            self.numGuessesLeft.text = "Fuck yoo!"
+//            self.numGuessesLeft.font = numGuessesLeft.font.withSize(20)
+//            guessButton.isEnabled = false
+//            playerView.text = model.word
+//            playerView.textColor = UIColor.red
+//        }
+//        var bool = false
+//        if model.revealedLetters == model.getSecretWord().count {
+//            guessButton.isEnabled == false
+//            outcomeLabel.text = "WINNER!!!"
+//        }
+
+        
+        
+    }
+    func processGueses() {
+        if model.takeAwayGuess == true {
+            numberOfGuessesLeft -= 1
+        }
+        
         numGuessesLeft.text = String(numberOfGuessesLeft)
         if numberOfGuessesLeft == 0 {
             print("You dies!")
@@ -84,12 +110,9 @@ class ViewController: UIViewController {
         if model.revealedLetters == model.getSecretWord().count {
             guessButton.isEnabled == false
             outcomeLabel.text = "WINNER!!!"
+            print("WINNER WINNER Chicken Dinner!!!!!!")
         }
-
-        
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

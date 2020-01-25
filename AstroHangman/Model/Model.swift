@@ -16,9 +16,10 @@ class Model {
     var wordCharArray : [String] = []
     var revealedLetters : Int?
     var startingGuesses : Int?
+    var takeAwayGuess : Bool?
     
     init(){
-        wordArray = ["fats","carbohydrates","protein","calories" ]
+        wordArray = ["fats","carbohydrates","protein","calories","grains","dairy" ]
         word = self.selectRandomWord()
     }
     
@@ -60,11 +61,12 @@ class Model {
          let wordArray : [Character] = Array(word ?? "guess")
         print("model.guess char: \(char)    \(word?.contains(char) ?? false)  \(blankWordArray)")
         if word?.contains(char) ?? false {
+            takeAwayGuess = false
             var charString = String(char)
             let idxArray = word?.indicesOf(string: charString)
             print(idxArray)
             print(charString)
-            self.revealedLetters = (revealedLetters ?? 0) + 1
+            self.revealedLetters = (revealedLetters ?? 0) + (idxArray?.count ?? 1)
             print(wordArray)
             for i in idxArray ?? [0] {
                 blankWordArray[i] = "\(wordCharArray[i]) "
@@ -74,7 +76,9 @@ class Model {
             return newBlankWord
         } else {
             print("not contained!!!")
+            takeAwayGuess = true
             return self.getBlankWord()
+            
         }
         
         return "guess"
