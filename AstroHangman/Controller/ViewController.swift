@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         
         playerView.text = guess
         processGueses()
+        sender.rotate360Degrees()
     }
     @IBOutlet weak var playerView: UILabel!
     @IBOutlet weak var numGuessesLeft: UILabel!
